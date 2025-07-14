@@ -122,6 +122,51 @@
         </div>
     </section>
     
+    <!-- Underwriter Partners Section -->
+    <section class="underwriter-partners-section">
+        <div class="container">
+            <h2>TRSTxCyber and their insurance partner can secure insurance from the following underwriters:</h2>
+            
+            <div class="underwriter-carousel-container">
+                <button class="carousel-arrow prev-arrow" id="underwriterPrevBtn">&lt;</button>
+                <div class="underwriter-carousel" id="underwriterCarousel">
+                    <!-- 10 placeholder logo spots -->
+                    <div class="underwriter-logo-box">
+                        <img src="images/placeholder-logo.png" alt="Underwriter Logo 1">
+                    </div>
+                    <div class="underwriter-logo-box">
+                        <img src="images/placeholder-logo.png" alt="Underwriter Logo 2">
+                    </div>
+                    <div class="underwriter-logo-box">
+                        <img src="images/placeholder-logo.png" alt="Underwriter Logo 3">
+                    </div>
+                    <div class="underwriter-logo-box">
+                        <img src="images/placeholder-logo.png" alt="Underwriter Logo 4">
+                    </div>
+                    <div class="underwriter-logo-box">
+                        <img src="images/placeholder-logo.png" alt="Underwriter Logo 5">
+                    </div>
+                    <div class="underwriter-logo-box">
+                        <img src="images/placeholder-logo.png" alt="Underwriter Logo 6">
+                    </div>
+                    <div class="underwriter-logo-box">
+                        <img src="images/placeholder-logo.png" alt="Underwriter Logo 7">
+                    </div>
+                    <div class="underwriter-logo-box">
+                        <img src="images/placeholder-logo.png" alt="Underwriter Logo 8">
+                    </div>
+                    <div class="underwriter-logo-box">
+                        <img src="images/placeholder-logo.png" alt="Underwriter Logo 9">
+                    </div>
+                    <div class="underwriter-logo-box">
+                        <img src="images/placeholder-logo.png" alt="Underwriter Logo 10">
+                    </div>
+                </div>
+                <button class="carousel-arrow next-arrow" id="underwriterNextBtn">&gt;</button>
+            </div>
+        </div>
+    </section>
+    
     <!-- FAQ Section with Accordion -->
     <section class="faq-section">
         <div class="container">
@@ -178,12 +223,83 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Accordion functionality
-            var acc = document.getElementsByClassName("accordion");
-            var i;
+            // Initialize the underwriter logo carousel
+            function initUnderwriterCarousel() {
+                const carousel = document.getElementById('underwriterCarousel');
+                const prevBtn = document.getElementById('underwriterPrevBtn');
+                const nextBtn = document.getElementById('underwriterNextBtn');
+                
+                if (!carousel || !prevBtn || !nextBtn) return; // Exit if elements don't exist
+                
+                const logoBoxes = carousel.querySelectorAll('.underwriter-logo-box');
+                if (logoBoxes.length === 0) return; // Exit if no logo boxes
+
+                const boxWidth = logoBoxes[0].offsetWidth;
+                const gap = 20; // Gap between items (should match CSS)
+                const visibleItems = window.innerWidth > 992 ? 5 : 
+                                    window.innerWidth > 768 ? 3 : 
+                                    window.innerWidth > 576 ? 2 : 1; // Responsive visible items
+                const scrollAmount = boxWidth + gap;
+                let currentPosition = 0;
+                const maxScroll = Math.max(0, (logoBoxes.length - visibleItems) * scrollAmount);
+                
+                // Update button visibility based on scroll position
+                function updateButtonVisibility() {
+                    prevBtn.style.display = currentPosition <= 0 ? 'none' : 'flex';
+                    nextBtn.style.display = currentPosition >= maxScroll ? 'none' : 'flex';
+                }
+                
+                // Initialize button visibility
+                updateButtonVisibility();
+                
+                // Previous button click handler
+                prevBtn.addEventListener('click', () => {
+                    currentPosition = Math.max(0, currentPosition - scrollAmount);
+                    carousel.scrollTo({
+                        left: currentPosition,
+                        behavior: 'smooth'
+                    });
+                    updateButtonVisibility();
+                });
+                
+                // Next button click handler
+                nextBtn.addEventListener('click', () => {
+                    currentPosition = Math.min(maxScroll, currentPosition + scrollAmount);
+                    carousel.scrollTo({
+                        left: currentPosition,
+                        behavior: 'smooth'
+                    });
+                    updateButtonVisibility();
+                });
+
+                // Handle window resize
+                window.addEventListener('resize', () => {
+                    // Recalculate dimensions and positions
+                    const newVisibleItems = window.innerWidth > 992 ? 5 : 
+                                          window.innerWidth > 768 ? 3 : 
+                                          window.innerWidth > 576 ? 2 : 1;
+                    const newBoxWidth = logoBoxes[0].offsetWidth;
+                    const newScrollAmount = newBoxWidth + gap;
+                    const newMaxScroll = Math.max(0, (logoBoxes.length - newVisibleItems) * newScrollAmount);
+                    
+                    // Reset position if needed
+                    currentPosition = Math.min(currentPosition, newMaxScroll);
+                    carousel.scrollTo({
+                        left: currentPosition,
+                        behavior: 'auto'
+                    });
+                    updateButtonVisibility();
+                });
+            }
+
+            // Initialize carousel
+            initUnderwriterCarousel();
             
-            for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function() {
+            // Accordion functionality
+            const accordions = document.querySelectorAll('.accordion');
+            
+            accordions.forEach(accordion => {
+                accordion.addEventListener('click', function() {
                     // Close all other panels first
                     var allAccordions = document.getElementsByClassName("accordion");
                     for (var j = 0; j < allAccordions.length; j++) {
@@ -204,7 +320,7 @@
                         panel.style.maxHeight = panel.scrollHeight + "px";
                     }
                 });
-            }
+            });
             
             // Animation for elements
             const cards = document.querySelectorAll('.plan-card');
