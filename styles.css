@@ -79,6 +79,114 @@ nav {
     gap: 2rem;
 }
 
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none;
+    position: relative;
+    z-index: 1001;
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    padding: 10px;
+    margin-right: -10px;
+}
+
+.hamburger-icon span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #00c3f5;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu:hover .hamburger-icon span {
+    background-color: #fff;
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, visibility 0.3s, transform 0.3s;
+        z-index: 1000;
+        padding: 2rem;
+    }
+    
+    .hamburger-menu:hover + .nav-links,
+    .nav-links:hover {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .nav-links > a, 
+    .nav-links .dropbtn, 
+    .nav-links .nav-item {
+        font-size: 1.4rem;
+        padding: 0.8rem;
+    }
+    
+    .dropdown {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .dropdown-content {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        box-shadow: none;
+        border: none;
+        background-color: #111;
+        margin-top: 0.5rem;
+        max-height: 0;
+        overflow: hidden;
+    }
+    
+    .dropdown:hover .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        max-height: 300px;
+        transition: max-height 0.5s ease, opacity 0.3s ease, visibility 0.3s, transform 0.3s;
+    }
+    
+    /* Add a close button for the mobile menu */
+    .nav-links::before {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2rem;
+        color: #fff;
+        cursor: pointer;
+    }
+}
+
 .nav-links > a, .nav-links .dropbtn, .nav-links .nav-item {
     color: white;
     text-decoration: none;
@@ -1645,7 +1753,7 @@ a.submit-btn, .cta-box a.submit-btn, body a.submit-btn, .bottom-section a.submit
 }
 
 .warranty-highlight p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 500;
     color: #fff;
 }
@@ -2742,6 +2850,37 @@ a.submit-btn, .cta-box a.submit-btn, body a.submit-btn, .bottom-section a.submit
     .industries-quote-btn {
         padding: 10px 20px;
         font-size: 0.9rem;
+    }
+}
+
+/* Extra small devices (phones) */
+@media (max-width: 480px) {
+    .industries-carousel-container {
+        padding: 0 30px;
+    }
+    
+    .industry-box {
+        min-width: 220px;
+        flex: 0 0 220px;
+        height: 200px;
+    }
+    
+    .carousel-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 20;
+    }
+    
+    .prev-arrow {
+        left: 0px;
+    }
+    
+    .next-arrow {
+        right: 0px;
     }
 }
 
