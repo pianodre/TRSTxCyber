@@ -27,7 +27,7 @@
                     <p>Financial protection and <span class="bc-highlight-white">peace of mind</span> for your business.</p>
                 </div>
                 <div class="bc-title-buttons">
-                    <a href="#" class="bc-button">Learn More</a>
+                    <a href="javascript:void(0)" class="bc-button" id="learn-more-btn">Learn More</a>
                     <a href="contact.html" class="bc-button">&nbsp;&nbsp;Get Covered&nbsp;&nbsp;</a>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                 <!-- Left Side - Text -->
                 <div class="warranty-intro-text">
                     
-                    <div class="warranty-highlight">
+                    <div class="warranty-highlight" id="warranty-section">
                         <p>Receive warranty protection of up to $500,000 for eligible incidents* when you partner with <span class="company-name">TRST</span><span class="biski-x">x</span><span class="company-name">Cyber</span> Solutions</p>
                     </div>
                     
@@ -231,6 +231,26 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll with offset for "Learn More" button
+            document.getElementById('learn-more-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get the target element
+                const warrantySection = document.getElementById('warranty-section');
+                
+                // Get the element's position relative to the viewport
+                const elementPosition = warrantySection.getBoundingClientRect().top;
+                
+                // Get the current scroll position
+                const offsetPosition = elementPosition + window.pageYOffset - 250;
+                
+                // Scroll to the element
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            });
+            
             // Initialize the underwriter logo carousel
             function initUnderwriterCarousel() {
                 const carousel = document.getElementById('underwriterCarousel');

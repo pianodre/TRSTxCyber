@@ -23,8 +23,8 @@
             <h2 style="color: #00c3f5;">Augmented Cyber Solutions</h2>
             <p style="color: white;">Enhancing your in-house IT with enterprise-grade security</p>
             <div class="sb-title-buttons">
-                <a href="#" class="sb-button">How It Works</a>
-                <a href="#" class="sb-button">Get Protected</a>
+                <a href="javascript:void(0)" class="sb-button" id="how-it-works-btn">How It Works</a>
+                <a href="javascript:void(0)" class="sb-button" id="get-protected-btn">Get Protected</a>
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
                         </ul>
                     </div>
                     <div class="mdr-feature-column">
-                        <h3>How It Works:</h3>
+                        <h3 id="how-it-works-section" style="scroll-margin-top: 150px; padding-top: 30px;">How It Works:</h3>
                         <ul class="mdr-feature-list">
                             <li>We Integrate with Your Existing IT Team</li>
                             <li>Our Security Experts Enhance Your Capabilities</li>
@@ -65,7 +65,7 @@
         </div>
         
         <!-- Field Effect Section -->
-        <div class="field-effect-section">
+        <div class="field-effect-section" id="get-protected-section">
             <div class="field-effect-header">
                 <div class="field-effect-content">
                     <h2>Field Effect - MDR Solution</h2>
@@ -289,6 +289,46 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll with offset for "How It Works" button
+            document.getElementById('how-it-works-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get the target element
+                const howItWorksSection = document.getElementById('how-it-works-section');
+                
+                // Get the element's position relative to the viewport
+                const elementPosition = howItWorksSection.getBoundingClientRect().top;
+                
+                // Get the current scroll position
+                const offsetPosition = elementPosition + window.pageYOffset - 325;
+                
+                // Scroll to the element
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Smooth scroll with offset for "Get Protected" button
+            document.getElementById('get-protected-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get the target element
+                const getProtectedSection = document.getElementById('get-protected-section');
+                
+                // Get the element's position relative to the viewport
+                const elementPosition = getProtectedSection.getBoundingClientRect().top;
+                
+                // Get the current scroll position
+                const offsetPosition = elementPosition + window.pageYOffset - 100;
+                
+                // Scroll to the element
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            });
+            
             // Reveal animation for elements
             const revealElements = document.querySelectorAll('.reveal-element');
             

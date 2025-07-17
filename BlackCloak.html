@@ -27,8 +27,8 @@
                     <p><span class="bc-highlight-blue">BlackCloak™ services</span> protect leading executives,<br> <span class="bc-highlight-white">high-profile individuals</span>, families, and businesses</p>
                 </div>
                 <div class="bc-title-buttons">
-                    <a href="#" class="bc-button">Why BlackCloak™</a>
-                    <a href="#" class="bc-button">&nbsp;&nbsp;Get Covered&nbsp;&nbsp;</a>
+                    <a href="javascript:void(0)" class="bc-button" id="why-blackcloak-btn">Why BlackCloak™</a>
+                    <a href="javascript:void(0)" class="bc-button" id="get-covered-btn">&nbsp;&nbsp;Get Covered&nbsp;&nbsp;</a>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
                 </div>
                 
                 <!-- Right Side - Benefits -->
-                <div class="benefits-container">
+                <div class="benefits-container" id="why-blackcloak-section">
                     <h2>Why companies & individuals choose BlackCloak<sup>TM</sup></h2>
                     <p>The award-winning digital executive protection solution prevents threats that originate in personal digital lives from compromising companies and impacting families.</p>
                 </div>
@@ -136,7 +136,7 @@
             <div class="container">
                 <div class="bottom-flex">
                     <!-- Left Side -->
-                    <div class="left-side">
+                    <div class="left-side" id="protect-online-section">
                         <h2 class="highlight-title">Protect Your Life Online</h2>
                         <p class="section-description">BlackCloak's Digital Executive Protection platform safeguards your online privacy, personal devices, home network, and reputation.</p>
                         <div class="cta-box">
@@ -218,6 +218,46 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll with offset for "Why BlackCloak" button
+            document.getElementById('why-blackcloak-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get the target element
+                const whyBlackCloakSection = document.getElementById('why-blackcloak-section');
+                
+                // Get the element's position relative to the viewport
+                const elementPosition = whyBlackCloakSection.getBoundingClientRect().top;
+                
+                // Get the current scroll position
+                const offsetPosition = elementPosition + window.pageYOffset - 300;
+                
+                // Scroll to the element
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Smooth scroll with offset for "Get Covered" button
+            document.getElementById('get-covered-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get the target element
+                const protectOnlineSection = document.getElementById('protect-online-section');
+                
+                // Get the element's position relative to the viewport
+                const elementPosition = protectOnlineSection.getBoundingClientRect().top;
+                
+                // Get the current scroll position
+                const offsetPosition = elementPosition + window.pageYOffset - 100;
+                
+                // Scroll to the element
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            });
+            
             // Get all trust boxes and cards
             const trustBoxes = document.querySelectorAll('.trust-box');
             const cards = document.querySelectorAll('.card');
