@@ -135,7 +135,12 @@ nav {
         padding: 2rem;
     }
     
-    /* Navigation toggle is now handled by JavaScript */
+    .hamburger-menu:hover + .nav-links,
+    .nav-links:hover {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
     
     .nav-links > a, 
     .nav-links .dropbtn, 
