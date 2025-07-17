@@ -231,6 +231,35 @@
                 }
             }
             
+            // Function to move a specific industry box to the left position
+            function centerIndustryBox(box) {
+                // Calculate the position to move this box to the left
+                const boxOffsetLeft = box.offsetLeft;
+                
+                // Update the scroll position to align with the left edge
+                scrollPosition = boxOffsetLeft;
+                if (scrollPosition < 0) scrollPosition = 0;
+                if (scrollPosition > carousel.scrollWidth - carousel.clientWidth) {
+                    scrollPosition = carousel.scrollWidth - carousel.clientWidth - 80;
+                }
+                
+                // Scroll to the position
+                carousel.scrollTo({
+                    left: scrollPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Update arrows after scrolling
+                setTimeout(updateArrows, 400);
+            }
+            
+            // Add click event listeners to all industry boxes
+            document.querySelectorAll('.industry-box').forEach(box => {
+                box.addEventListener('click', function() {
+                    centerIndustryBox(this);
+                });
+            });
+            
             // Handle next arrow click
             nextArrow.addEventListener('click', function() {
                 scrollPosition += boxWidth; // Scroll by 1 box
