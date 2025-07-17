@@ -58,3 +58,31 @@
     color: #4da6ff;
     margin-bottom: 1rem;
 }
+
+/* Blog navigation styles */
+.blog-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 0rem;
+}
+
+.blog-nav-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #252525;
+    color: #4da6ff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.blog-nav-button:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.blog-nav-spacer {
+    width: 120px;
+}
