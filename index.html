@@ -35,6 +35,9 @@
 </head>
 <body>
     <section class="hero">
+        <video class="background-video-hero" autoplay muted loop id="heroBackgroundVideo">
+            <source src="videos/HomepageBackground.mp4" type="video/mp4">
+        </video>
         <div class="hero-container">
             <div class="hero-left">
                 <div class="hero-logo">
@@ -60,7 +63,65 @@
                 </div>
             </div>
             <div class="hero-right">
-                <img src="images/title-screen.png" alt="TRSTxCyber Logo" class="hero-right-img">
+                <div class="carousel-container">
+                    <div class="solutions-carousel">
+                        <div class="carousel-slides-container">
+                            <!-- Slide 1: Business Solutions -->
+                            <div class="carousel-slide" id="slide1">
+                                <div class="solutions-box">
+                                    <h2>Business Solutions</h2>
+                                    <p>Comprehensive protection & support tailored for your small business</p>
+                                    <a href="small-business.html" class="get-started-btn">Get Started</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 2: Enterprise Solutions -->
+                            <div class="carousel-slide" id="slide2">
+                                <div class="solutions-box">
+                                    <h2>Enterprise Solutions</h2>
+                                    <p>Enhancing your in-house IT with enterprise-grade security</p>
+                                    <a href="enterprise.html" class="get-started-btn">Get Started</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 3: Executive Cybersecurity -->
+                            <div class="carousel-slide" id="slide3">
+                                <div class="solutions-box">
+                                    <h2>Executive Cybersecurity</h2>
+                                    <p>BlackCloak™ services protects executives, and high-profile individuals.</p>
+                                    <a href="BlackCloak.html" class="get-started-btn">Get Started</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 4: Cyber Insurance -->
+                            <div class="carousel-slide" id="slide4">
+                                <div class="solutions-box">
+                                    <h2>Cyber Insurance</h2>
+                                    <p>Financial protection and peace of mind for your business</p>
+                                    <a href="cyber-insurance.html" class="get-started-btn">Get Started</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 5: IT Support -->
+                            <div class="carousel-slide" id="slide5">
+                                <div class="solutions-box">
+                                    <h2>IT Support</h2>
+                                    <p>IT support for small and medium sized businesses</p>
+                                    <a href="it-support.html" class="get-started-btn">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Dots -->
+                    <div class="carousel-dots">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                        <span class="dot" data-index="3"></span>
+                        <span class="dot" data-index="4"></span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -302,6 +363,12 @@
                 backgroundVideo.playbackRate = 0.7;
             }
             
+            // Set hero video playback speed to 80%
+            const heroBackgroundVideo = document.getElementById('heroBackgroundVideo');
+            if (heroBackgroundVideo) {
+                heroBackgroundVideo.playbackRate = 0.8;
+            }
+            
             // Get all elements to animate
             const cards = document.querySelectorAll('.card');
             const serviceCards = document.querySelectorAll('.service-card');
@@ -383,5 +450,6 @@
             }
         });
     </script>
+    <script src="js/carousel.js"></script>
 </body>
 </html>

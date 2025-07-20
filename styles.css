@@ -27,10 +27,16 @@
     font-weight: normal;
 }
 
+/* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -39,8 +45,13 @@ body {
     color: #e0e0e0;
     background-color: #1a1a1a;
     margin: 0;
+    padding: 0;
     padding-top: 80px; /* Space for fixed navigation */
     font-size: 1.05rem; /* Base font size increase */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
 }
 
 nav {
@@ -307,6 +318,22 @@ nav {
     background-color: #1a1a1a;
     position: relative;
     margin-top: -80px; /* Pull up to fill the space */
+    overflow: hidden;
+    max-width: 100%;
+}
+
+/* Removed overlay to match original appearance */
+
+.background-video-hero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.6);
+    opacity: 1.0;
 }
 
 .hero-container {
@@ -315,6 +342,8 @@ nav {
     max-width: 100%;
     height: 100%;
     padding: 2rem 0 2rem 2rem;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-left {
@@ -330,14 +359,113 @@ nav {
 .hero-right {
     flex: 1;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
     padding-right: 0;
+    padding-left: 5%;
     overflow: hidden;
     position: relative;
-    background-image: url('images/X-Fade-Pattern.png');
-    background-size: cover;
-    background-position: center;
+}
+
+.carousel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 500px;
+}
+
+.solutions-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-slides-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    gap: 20px;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    width: 100%;
+    flex-shrink: 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.solutions-box {
+    background-color: rgba(26, 26, 26, 0.7);
+    border-radius: 18px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 195, 245, 0.3);
+    overflow: hidden;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.solutions-box h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00c3f5;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+}
+
+.solutions-box p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+    margin-bottom: 2rem;
+}
+
+.carousel-dots {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+    z-index: 10;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.dot.active {
+    background-color: white;
+}
+
+.get-started-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #00c3f5;
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.get-started-btn:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 195, 245, 0.4);
 }
 
 .hero-right-img {
