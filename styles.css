@@ -346,6 +346,45 @@ nav {
     z-index: 2;
 }
 
+/* Media query for hero section on mobile devices */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        height: auto;
+    }
+    
+    .hero-left {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+        margin-bottom: 2rem;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .hero-right {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .hero-tagline {
+        text-align: center;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .solution-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .solution-btn {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
 .hero-left {
     flex: 1;
     display: flex;
@@ -424,6 +463,28 @@ nav {
     line-height: 1.5;
     color: #e0e0e0;
     margin-bottom: 2rem;
+}
+
+/* Media query for carousel on mobile devices */
+@media (max-width: 768px) {
+    .carousel-container {
+        width: 90%;
+        max-width: 100%;
+    }
+    
+    .carousel-slide {
+        min-width: 100%;
+        padding: 0;
+    }
+    
+    .carousel-slides-container {
+        gap: 0;
+    }
+    
+    .solutions-box {
+        margin: 0 auto;
+        width: 90%;
+    }
 }
 
 .carousel-dots {
