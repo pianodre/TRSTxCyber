@@ -1278,6 +1278,22 @@ body.it-support-page h1 {
     padding: 2rem 0;
 }
 
+/* Media queries for services grid on mobile devices */
+@media screen and (max-width: 900px) {
+    .partner-section .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    .partner-section .service-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 1.5rem;
+    }
+}
+
 .service-card {
     background: #1a1a1a;
     border: 1px solid #00c3f5;
