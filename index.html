@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <link rel="stylesheet" href="styles.css?v=1751665237690">
+    <style>
+        @media (max-width: 992px) {
+            .hero-right { display: none !important; }
+        }
+    </style>
     <!-- Mobile popup script -->    
     <script src="mobile-popup.js" defer></script>
     <script src="script.js" defer></script>
     <script src="footer.js" defer></script>
-    <script src="word-rotator.js" defer></script>
     <script src="testimonial-carousel.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -30,6 +34,24 @@
                     }
                 });
             }
+            
+            // Handle carousel visibility based on screen size
+            function handleCarouselVisibility() {
+                const carousel = document.getElementById('hero-carousel');
+                if (carousel) {
+                    if (window.innerWidth <= 992) {
+                        carousel.style.display = 'none';
+                    } else {
+                        carousel.style.display = 'flex';
+                    }
+                }
+            }
+            
+            // Run on page load
+            handleCarouselVisibility();
+            
+            // Run on window resize
+            window.addEventListener('resize', handleCarouselVisibility);
         });
     </script>
 </head>
@@ -44,12 +66,14 @@
                     <img src="images/homepage-logo.png" alt="Company Logo" class="hero-logo-img">
                 </div>
                 <div class="hero-tagline">
-                    <p class="services-line">
-                        <span class="highlight-service">Trusted Cybersecurity Solutions.<br>For your business and digital life.</span>
-                    </p>
-                    <p class="support-line" id="tagline-container">
-                        <span class="tagline-static">Cyber</span><span id="rotating-word" class="highlight-security">security</span><span class="tagline-static"> on your terms</span>
-                    </p>
+                    <div class="tagline-wrapper">
+                        <p class="services-line">
+                            <span class="highlight-service">Trusted Cybersecurity Solutions.<br>For your business and digital life.</span>
+                        </p>
+                        <p class="support-line">
+                            <span class="tagline-static">Cyber</span><span class="highlight-security">security</span><span class="tagline-static"> on your terms</span>
+                        </p>
+                    </div>
                     <div class="solution-buttons">
                         <div class="solution-btn-dropdown" id="businessDropdown">
                             <button class="solution-btn business-btn" id="businessBtn">I need a Business Solution</button>
@@ -62,8 +86,8 @@
                     </div>
                 </div>
             </div>
-            <div class="hero-right">
-                <div class="carousel-container">
+            <div class="hero-right hide-on-mobile" style="display: none;" id="hero-carousel">
+                <div class="carousel-container mobile-hide">
                     <div class="solutions-carousel">
                         <div class="carousel-slides-container">
                             <!-- Slide 1: Business Solutions -->
