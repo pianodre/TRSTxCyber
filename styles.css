@@ -574,6 +574,7 @@ nav {
     max-width: 600px;
     overflow: hidden;
     position: relative;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .carousel-container {
@@ -1107,6 +1108,10 @@ h1 {
     animation: fadeInText 0.5s ease-out 0.8s forwards;
 }
 
+.card.animate li {
+    animation: fadeInText 0.5s ease-out 0.8s forwards;
+}
+
 @keyframes fadeInText {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -1129,6 +1134,10 @@ h1 {
 }
 
 .card p {
+    opacity: 0;
+}
+
+.card li {
     opacity: 0;
 }
 
@@ -5168,6 +5177,7 @@ footer {
     
     .mdr-image {
         margin-top: 2rem;
+        text-align: center;
     }
     
     .mdr-features {
