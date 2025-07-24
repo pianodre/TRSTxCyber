@@ -117,7 +117,8 @@ nav {
     transition: all 0.3s ease;
 }
 
-.hamburger-menu:hover .hamburger-icon span {
+.hamburger-menu:hover .hamburger-icon span,
+.hamburger-menu.active .hamburger-icon span {
     background-color: #fff;
 }
 
@@ -156,8 +157,7 @@ nav {
         padding: 2rem;
     }
     
-    .hamburger-menu:hover + .nav-links,
-    .nav-links:hover {
+    .nav-links.active {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);

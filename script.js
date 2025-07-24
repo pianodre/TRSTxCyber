@@ -210,12 +210,30 @@ function initScrollAnimations() {
     });
 }
 
+// Function to initialize hamburger menu toggle functionality
+function initHamburgerMenu() {
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (hamburgerMenu && navLinks) {
+        hamburgerMenu.addEventListener('click', function() {
+            // Toggle active class on hamburger menu
+            hamburgerMenu.classList.toggle('active');
+            
+            // Toggle active class on nav links to show/hide them
+            navLinks.classList.toggle('active');
+        });
+    }
+}
+
 // Load navigation and initialize carousels when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM fully loaded');
     
     loadNavigation().then(() => {
         setActiveNavigation();
+        // Initialize hamburger menu after navigation is loaded
+        initHamburgerMenu();
     });
     initTechCarousel();
     
