@@ -3521,21 +3521,39 @@ body.small-business-page header h1 {
 }
 
 /* Responsive styles for the blue banner header */
+@media (max-width: 1101px) {
+    body.small-business-page header {
+        margin-top: -70px;
+        height: 90px;
+        position: relative;
+    }
+    
+    body.small-business-page header .container {
+        padding: 0;
+        margin: 0;
+        padding: 0 2.5rem;
+        width: 100%;
+        position: absolute;
+        bottom: 0.2rem;
+    }
+    
+    body.small-business-page header h1 {
+        top: 0;
+        margin: 0;
+    }
+}
+
 @media (max-width: 768px) {
     body.small-business-page header {
-        margin-top: -60px;
-        padding-top: 60px;
+        margin-top: -70px;
+        height: 90px;
     }
 }
 
 @media (max-width: 576px) {
     body.small-business-page header {
-        margin-top: -50px;
-        padding-top: 50px;
-    }
-    
-    body.small-business-page header h1 {
-        font-size: 1rem;
+        margin-top: -70px;
+        height: 90px;
     }
 }
 
@@ -3615,25 +3633,39 @@ body.inner-page header h1 {
     z-index: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1101px) {
     body.inner-page header {
-        margin-top: -60px;
-        padding-top: 60px;
+        margin-top: -70px;
+        height: 90px;
+        position: relative;
+    }
+    
+    body.inner-page header .container {
+        padding: 0;
+        margin: 0;
+        padding: 0 2.5rem;
+        width: 100%;
+        position: absolute;
+        bottom: 0.2rem;
     }
     
     body.inner-page header h1 {
-        font-size: 1.1rem;
+        top: 0;
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    body.inner-page header {
+        margin-top: -70px;
+        height: 90px;
     }
 }
 
 @media (max-width: 576px) {
     body.inner-page header {
-        margin-top: -50px;
-        padding-top: 50px;
-    }
-    
-    body.inner-page header h1 {
-        font-size: 1rem;
+        margin-top: -70px;
+        height: 90px;
     }
 }
 
@@ -3839,21 +3871,39 @@ body.it-support-page header h1 {
 }
 
 /* Responsive styles for the IT Support blue banner header */
+@media (max-width: 1101px) {
+    body.it-support-page header {
+        margin-top: -70px;
+        height: 90px;
+        position: relative;
+    }
+    
+    body.it-support-page header .container {
+        padding: 0;
+        margin: 0;
+        padding: 0 2.5rem;
+        width: 100%;
+        position: absolute;
+        bottom: 0.2rem;
+    }
+    
+    body.it-support-page header h1 {
+        top: 0;
+        margin: 0;
+    }
+}
+
 @media (max-width: 768px) {
     body.it-support-page header {
-        margin-top: -60px;
-        padding-top: 60px;
+        margin-top: -70px;
+        height: 90px;
     }
 }
 
 @media (max-width: 576px) {
     body.it-support-page header {
-        margin-top: -50px;
-        padding-top: 50px;
-    }
-    
-    body.it-support-page header h1 {
-        font-size: 1rem;
+        margin-top: -70px;
+        height: 90px;
     }
 }
 
@@ -3884,21 +3934,39 @@ body.enterprise-page header h1 {
 }
 
 /* Responsive styles for the enterprise blue banner header */
+@media (max-width: 1101px) {
+    body.enterprise-page header {
+        margin-top: -70px;
+        height: 90px;
+        position: relative;
+    }
+    
+    body.enterprise-page header .container {
+        padding: 0;
+        margin: 0;
+        padding: 0 2.5rem;
+        width: 100%;
+        position: absolute;
+        bottom: 0.2rem;
+    }
+    
+    body.enterprise-page header h1 {
+        top: 0;
+        margin: 0;
+    }
+}
+
 @media (max-width: 768px) {
     body.enterprise-page header {
-        margin-top: -60px;
-        padding-top: 60px;
+        margin-top: -70px;
+        height: 90px;
     }
 }
 
 @media (max-width: 576px) {
     body.enterprise-page header {
-        margin-top: -50px;
-        padding-top: 50px;
-    }
-    
-    body.enterprise-page header h1 {
-        font-size: 1rem;
+        margin-top: -70px;
+        height: 90px;
     }
 }
 
