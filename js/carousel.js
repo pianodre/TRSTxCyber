@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Set initial position
     let currentSlide = 0;
+    let autoScrollTimer;
     
     // Function to update the carousel position
     function updateCarousel() {
@@ -30,6 +31,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Function to start auto-scroll timer
+    function startAutoScroll() {
+        autoScrollTimer = setInterval(function() {
+            // Increment current slide
+            currentSlide++;
+            
+            // Loop back to first slide if needed
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            
+            // Update carousel
+            updateCarousel();
+        }, 5000);
+    }
+    
+    // Function to reset auto-scroll timer
+    function resetAutoScroll() {
+        clearInterval(autoScrollTimer);
+        startAutoScroll();
+    }
+    
     // Add click event to each dot
     dots.forEach(dot => {
         dot.addEventListener('click', function() {
@@ -38,20 +61,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Update carousel
             updateCarousel();
+            
+            // Reset the auto-scroll timer
+            resetAutoScroll();
         });
     });
     
-    // Auto-rotate carousel every 5 seconds
-    setInterval(function() {
-        // Increment current slide
-        currentSlide++;
-        
-        // Loop back to first slide if needed
-        if (currentSlide >= totalSlides) {
-            currentSlide = 0;
-        }
-        
-        // Update carousel
-        updateCarousel();
-    }, 5000);
+    // Start the auto-scroll timer
+    startAutoScroll();
 });
