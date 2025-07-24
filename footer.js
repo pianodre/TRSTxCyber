@@ -44,7 +44,7 @@ function initFooterAnimations() {
         
         // Observe the footer left element (we only need to observe one element)
         observer.observe(footerLeft);
-    }, 300);
+    }, 200);
 }
 
 // Load footer when the page loads

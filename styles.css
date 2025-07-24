@@ -1443,6 +1443,8 @@ body.it-support-page h1 {
     line-height: 1.3;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     animation: fadeInUp 1.0s ease-out;
+    max-width: 100%;
+    word-wrap: break-word;
 }
 
 /* Removed duplicated styles */
@@ -1454,8 +1456,15 @@ body.it-support-page h1 {
         margin-bottom: 2rem;
     }
     
-    .it-title-overlay h2 {
+    .it-title-content h2 {
         font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .it-title-content h2 {
+        font-size: 2rem;
+        line-height: 1.2;
     }
 }
 .partner-section {
@@ -1477,6 +1486,8 @@ body.it-support-page h1 {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     padding: 2rem 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Media queries for services grid on mobile devices */
@@ -1545,6 +1556,18 @@ body.it-support-page h1 {
 @media (max-width: 900px) {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
     }
 }
 
@@ -1986,12 +2009,30 @@ a.submit-btn, .cta-box a.submit-btn, body a.submit-btn, .bottom-section a.submit
 
 /* Media queries for BlackCloak page */
 @media (max-width: 768px) {
+    .trust-row {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+    
     .trust-box {
         width: 48%;
+        margin-bottom: 10px;
     }
     
     .bottom-flex {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .trust-row {
+        flex-direction: column;
+    }
+    
+    .trust-box {
+        width: 100%;
+        margin-bottom: 15px;
     }
     
     .left-side, .right-side {
@@ -2538,6 +2579,18 @@ a.submit-btn, .cta-box a.submit-btn, body a.submit-btn, .bottom-section a.submit
     text-shadow: 0 1px 3px rgba(0,0,0,0.3);
     display: inline-block;
     margin-right: 100px;
+}
+
+@media (max-width: 768px) {
+    .banner-text h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-text h2 {
+        font-size: 1.2rem;
+    }
 }
 
 @keyframes scroll-left {
@@ -3279,8 +3332,7 @@ a.submit-btn, .cta-box a.submit-btn, body a.submit-btn, .bottom-section a.submit
         height: 30px;
         font-size: 1rem;
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+        top: calc(50% - 15px);
         z-index: 20;
     }
     
@@ -3635,7 +3687,21 @@ body.inner-page header h1 {
     margin: 0;
     max-width: 800px;
     padding-left: 4rem; /* Added indent */
+    line-height: 1.5;
 }
+
+/* Control line break visibility */
+.desktop-break {
+    display: inline; /* Show by default on desktop */
+}
+
+@media (max-width: 768px) {
+    .desktop-break {
+        display: none; /* Hide on mobile/tablet */
+    }
+}
+
+
 
 /* Highlighted text styles */
 .bc-highlight-blue {
@@ -3681,7 +3747,7 @@ body.inner-page header h1 {
     
     .bc-title-text {
         text-align: center;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
     
     .bc-title-text h2 {
@@ -3690,6 +3756,50 @@ body.inner-page header h1 {
     
     .bc-title-text p {
         margin: 0 auto;
+        padding-left: 0;
+        font-size: 1.2rem;
+        text-align: center;
+        max-width: 100%;
+    }
+    
+
+    
+    .bc-title-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-right: 0;
+        width: 100%;
+    }
+    
+    .bc-button {
+        width: 80%;
+        max-width: 250px;
+        text-align: center;
+        margin: 0.25rem 0;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .bc-title-screen {
+        height: 500px;
+    }
+    
+    .bc-title-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .bc-title-text p {
+        font-size: 1.1rem;
+    }
+    
+    .bc-button {
+        width: 90%;
+        padding: 0.7rem 1.5rem;
+        font-size: 0.95rem;
     }
 }
 
