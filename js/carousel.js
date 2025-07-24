@@ -9,11 +9,21 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentSlide = 0;
     let autoScrollTimer;
     
+    // Function to get current gap value based on screen size
+    function getCurrentGap() {
+        // Check if we're on mobile (matches CSS media query)
+        if (window.innerWidth <= 768) {
+            return 0; // Mobile gap
+        } else {
+            return 20; // Desktop gap
+        }
+    }
+    
     // Function to update the carousel position
     function updateCarousel() {
-        // Get the slide width including the gap
+        // Get the slide width and current gap
         const slideWidth = slides[0].offsetWidth;
-        const gap = 20; // This should match the CSS gap value
+        const gap = getCurrentGap();
         
         // Calculate the translation value based on current slide
         const translateValue = -(currentSlide * (slideWidth + gap)) + 'px';
@@ -69,4 +79,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Start the auto-scroll timer
     startAutoScroll();
+    
+    // Add window resize listener to recalculate carousel position
+    window.addEventListener('resize', function() {
+        // Recalculate carousel position when screen size changes
+        updateCarousel();
+    });
 });
