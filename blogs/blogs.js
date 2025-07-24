@@ -12,12 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('nav-placeholder').innerHTML = modifiedData;
             
             // Initialize hamburger menu functionality
-            const hamburgerIcon = document.querySelector('.hamburger-icon');
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
             const navLinks = document.querySelector('.nav-links');
             
-            if (hamburgerIcon && navLinks) {
-                hamburgerIcon.addEventListener('click', function() {
-                    hamburgerIcon.classList.toggle('active');
+            if (hamburgerMenu && navLinks) {
+                hamburgerMenu.addEventListener('click', function() {
+                    hamburgerMenu.classList.toggle('active');
                     navLinks.classList.toggle('active');
                 });
             }
