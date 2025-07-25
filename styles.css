@@ -2764,6 +2764,31 @@ a.submit-btn, .cta-box a.submit-btn, body a.submit-btn, .bottom-section a.submit
     object-fit: cover;
     z-index: -1;
     filter: brightness(0.4);
+    pointer-events: none;
+}
+
+/* Hide video controls on all devices */
+.background-video::-webkit-media-controls {
+    display: none !important;
+}
+
+.background-video::-webkit-media-controls-panel {
+    display: none !important;
+}
+
+.background-video::-webkit-media-controls-play-button {
+    display: none !important;
+}
+
+.background-video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+}
+
+/* Additional mobile-specific rules */
+@media (max-width: 768px) {
+    .background-video {
+        pointer-events: none;
+    }
 }
 
 .protection-flex {

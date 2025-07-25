@@ -187,7 +187,7 @@
 
         <!-- Financial Protection Section -->
         <section class="financial-protection-section">
-            <video class="background-video" autoplay muted loop id="backgroundVideo">
+            <video class="background-video" autoplay muted loop playsinline preload="auto" controls="false" id="backgroundVideo">
                 <source src="videos/lines.mp4" type="video/mp4">
             </video>
             <div class="container">
@@ -385,6 +385,28 @@
             const backgroundVideo = document.getElementById('backgroundVideo');
             if (backgroundVideo) {
                 backgroundVideo.playbackRate = 0.7;
+                
+                // Ensure video autoplays on mobile without controls
+                backgroundVideo.setAttribute('playsinline', 'true');
+                backgroundVideo.setAttribute('webkit-playsinline', 'true');
+                backgroundVideo.removeAttribute('controls');
+                
+                // Force play on mobile devices
+                const playVideo = () => {
+                    backgroundVideo.play().catch(error => {
+                        console.log('Video autoplay failed:', error);
+                        // Retry playing the video when user interacts with the page
+                        document.addEventListener('touchstart', () => {
+                            backgroundVideo.play();
+                        }, { once: true });
+                    });
+                };
+                
+                // Try to play immediately
+                playVideo();
+                
+                // Also try when the video loads
+                backgroundVideo.addEventListener('loadeddata', playVideo);
             }
             
             // Set hero video playback speed to 80%
