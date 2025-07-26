@@ -16,15 +16,16 @@
 
 /* Styled company name */
 .company-name {
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #ffffff;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 .biski-x {
     font-family: 'Biski', sans-serif;
     color: #00c3f5;
-    font-weight: normal;
+    font-weight: bold;
+    font-size: 1.7rem;
 }
 
 /* Reset and base styles */
@@ -4786,7 +4787,8 @@ footer {
 .biski-x {
     font-family: 'Biski', sans-serif;
     color: #00c3f5;
-    font-weight: normal;
+    font-weight: bold;
+    font-size: 1.7rem;
 }
 
 /* Underwriter Partners Section */
