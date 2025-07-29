@@ -3068,6 +3068,7 @@ a.submit-btn, .cta-box a.submit-btn, body a.submit-btn, .bottom-section a.submit
     max-width: 100%;
     height: auto;
     display: block;
+    border-radius: 12px;
 }
 
 .partner-benefits {
