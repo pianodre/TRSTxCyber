@@ -2785,11 +2785,22 @@ a.submit-btn, .cta-box a.submit-btn, body a.submit-btn, .bottom-section a.submit
     display: none !important;
 }
 
-/* Hide video controls for all background video classes */
+/* Comprehensive video control hiding for all background video classes */
+.background-video-hero,
+.background-video-sb,
+.background-video-bc {
+    /* Hide all possible video controls */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* WebKit controls hiding */
 .background-video-hero::-webkit-media-controls,
 .background-video-sb::-webkit-media-controls,
 .background-video-bc::-webkit-media-controls {
     display: none !important;
+    -webkit-appearance: none;
 }
 
 .background-video-hero::-webkit-media-controls-panel,
@@ -2807,6 +2818,54 @@ a.submit-btn, .cta-box a.submit-btn, body a.submit-btn, .bottom-section a.submit
 .background-video-hero::-webkit-media-controls-start-playback-button,
 .background-video-sb::-webkit-media-controls-start-playback-button,
 .background-video-bc::-webkit-media-controls-start-playback-button {
+    display: none !important;
+}
+
+.background-video-hero::-webkit-media-controls-enclosure,
+.background-video-sb::-webkit-media-controls-enclosure,
+.background-video-bc::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+
+.background-video-hero::-webkit-media-controls-overlay-play-button,
+.background-video-sb::-webkit-media-controls-overlay-play-button,
+.background-video-bc::-webkit-media-controls-overlay-play-button {
+    display: none !important;
+}
+
+.background-video-hero::-webkit-media-controls-current-time-display,
+.background-video-sb::-webkit-media-controls-current-time-display,
+.background-video-bc::-webkit-media-controls-current-time-display {
+    display: none !important;
+}
+
+.background-video-hero::-webkit-media-controls-time-remaining-display,
+.background-video-sb::-webkit-media-controls-time-remaining-display,
+.background-video-bc::-webkit-media-controls-time-remaining-display {
+    display: none !important;
+}
+
+.background-video-hero::-webkit-media-controls-timeline,
+.background-video-sb::-webkit-media-controls-timeline,
+.background-video-bc::-webkit-media-controls-timeline {
+    display: none !important;
+}
+
+.background-video-hero::-webkit-media-controls-volume-slider,
+.background-video-sb::-webkit-media-controls-volume-slider,
+.background-video-bc::-webkit-media-controls-volume-slider {
+    display: none !important;
+}
+
+.background-video-hero::-webkit-media-controls-mute-button,
+.background-video-sb::-webkit-media-controls-mute-button,
+.background-video-bc::-webkit-media-controls-mute-button {
+    display: none !important;
+}
+
+.background-video-hero::-webkit-media-controls-fullscreen-button,
+.background-video-sb::-webkit-media-controls-fullscreen-button,
+.background-video-bc::-webkit-media-controls-fullscreen-button {
     display: none !important;
 }
 

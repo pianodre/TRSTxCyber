@@ -16,7 +16,7 @@
     </header>
     
     <div class="sb-title-screen enterprise-title-screen">
-        <video class="background-video-sb" autoplay muted loop playsinline preload="auto" controls="false" id="enterpriseBackgroundVideo">
+        <video class="background-video-sb" autoplay muted loop playsinline preload="auto" controls="false" disablepictureinpicture disableremoteplayback webkit-playsinline id="enterpriseBackgroundVideo">
             <source src="videos/AugmentedCyberVid.mp4" type="video/mp4">
         </video>
         <div class="sb-title-content container">
@@ -359,10 +359,24 @@
                 
                 // Mobile autoplay logic
                 const playEnterpriseVideo = () => {
+                    // Set all mobile-specific attributes
                     enterpriseVideo.setAttribute('playsinline', 'true');
                     enterpriseVideo.setAttribute('muted', 'true');
                     enterpriseVideo.setAttribute('autoplay', 'true');
+                    enterpriseVideo.setAttribute('controls', 'false');
+                    enterpriseVideo.setAttribute('disablepictureinpicture', 'true');
+                    enterpriseVideo.setAttribute('disableremoteplayback', 'true');
+                    enterpriseVideo.setAttribute('webkit-playsinline', 'true');
+                    
+                    // Set properties directly
                     enterpriseVideo.muted = true;
+                    enterpriseVideo.controls = false;
+                    enterpriseVideo.disablePictureInPicture = true;
+                    enterpriseVideo.disableRemotePlayback = true;
+                    
+                    // Additional mobile-specific styling
+                    enterpriseVideo.style.pointerEvents = 'none';
+                    enterpriseVideo.style.webkitAppearance = 'none';
                     
                     enterpriseVideo.play().catch(error => {
                         console.log('Enterprise video autoplay failed:', error);

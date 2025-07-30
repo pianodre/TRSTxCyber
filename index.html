@@ -57,7 +57,7 @@
 </head>
 <body>
     <section class="hero">
-        <video class="background-video-hero" autoplay muted loop playsinline preload="auto" controls="false" id="heroBackgroundVideo">
+        <video class="background-video-hero" autoplay muted loop playsinline preload="auto" controls="false" disablepictureinpicture disableremoteplayback webkit-playsinline id="heroBackgroundVideo">
             <source src="videos/HomepageBackground.mp4" type="video/mp4">
         </video>
         <div class="hero-container">
@@ -446,10 +446,24 @@
                 
                 // Mobile autoplay logic for hero video
                 const playHeroVideo = () => {
+                    // Set all mobile-specific attributes
                     heroBackgroundVideo.setAttribute('playsinline', 'true');
                     heroBackgroundVideo.setAttribute('muted', 'true');
                     heroBackgroundVideo.setAttribute('autoplay', 'true');
+                    heroBackgroundVideo.setAttribute('controls', 'false');
+                    heroBackgroundVideo.setAttribute('disablepictureinpicture', 'true');
+                    heroBackgroundVideo.setAttribute('disableremoteplayback', 'true');
+                    heroBackgroundVideo.setAttribute('webkit-playsinline', 'true');
+                    
+                    // Set properties directly
                     heroBackgroundVideo.muted = true;
+                    heroBackgroundVideo.controls = false;
+                    heroBackgroundVideo.disablePictureInPicture = true;
+                    heroBackgroundVideo.disableRemotePlayback = true;
+                    
+                    // Additional mobile-specific styling
+                    heroBackgroundVideo.style.pointerEvents = 'none';
+                    heroBackgroundVideo.style.webkitAppearance = 'none';
                     
                     heroBackgroundVideo.play().catch(error => {
                         console.log('Hero video autoplay failed:', error);

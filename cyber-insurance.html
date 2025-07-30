@@ -17,7 +17,7 @@
     
     <!-- Video background title screen -->
     <div class="bc-title-screen">
-        <video class="background-video-bc" autoplay muted loop playsinline preload="auto" controls="false" id="bcBackgroundVideo">
+        <video class="background-video-bc" autoplay muted loop playsinline preload="auto" controls="false" disablepictureinpicture disableremoteplayback webkit-playsinline id="bcBackgroundVideo">
             <source src="videos/CyberInsuranceBackgroundVid.mp4" type="video/mp4">
         </video>
         <div class="bc-title-banner">
@@ -405,10 +405,24 @@
                 bcBackgroundVideo.playbackRate = 0.8;
                 
                 const playBcVideo = () => {
+                    // Set all mobile-specific attributes
                     bcBackgroundVideo.setAttribute('playsinline', 'true');
                     bcBackgroundVideo.setAttribute('muted', 'true');
                     bcBackgroundVideo.setAttribute('autoplay', 'true');
+                    bcBackgroundVideo.setAttribute('controls', 'false');
+                    bcBackgroundVideo.setAttribute('disablepictureinpicture', 'true');
+                    bcBackgroundVideo.setAttribute('disableremoteplayback', 'true');
+                    bcBackgroundVideo.setAttribute('webkit-playsinline', 'true');
+                    
+                    // Set properties directly
                     bcBackgroundVideo.muted = true;
+                    bcBackgroundVideo.controls = false;
+                    bcBackgroundVideo.disablePictureInPicture = true;
+                    bcBackgroundVideo.disableRemotePlayback = true;
+                    
+                    // Additional mobile-specific styling
+                    bcBackgroundVideo.style.pointerEvents = 'none';
+                    bcBackgroundVideo.style.webkitAppearance = 'none';
                     
                     bcBackgroundVideo.play().catch(error => {
                         console.log('Cyber insurance video autoplay failed:', error);
