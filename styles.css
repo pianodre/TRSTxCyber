@@ -2785,9 +2785,37 @@ a.submit-btn, .cta-box a.submit-btn, body a.submit-btn, .bottom-section a.submit
     display: none !important;
 }
 
+/* Hide video controls for all background video classes */
+.background-video-hero::-webkit-media-controls,
+.background-video-sb::-webkit-media-controls,
+.background-video-bc::-webkit-media-controls {
+    display: none !important;
+}
+
+.background-video-hero::-webkit-media-controls-panel,
+.background-video-sb::-webkit-media-controls-panel,
+.background-video-bc::-webkit-media-controls-panel {
+    display: none !important;
+}
+
+.background-video-hero::-webkit-media-controls-play-button,
+.background-video-sb::-webkit-media-controls-play-button,
+.background-video-bc::-webkit-media-controls-play-button {
+    display: none !important;
+}
+
+.background-video-hero::-webkit-media-controls-start-playback-button,
+.background-video-sb::-webkit-media-controls-start-playback-button,
+.background-video-bc::-webkit-media-controls-start-playback-button {
+    display: none !important;
+}
+
 /* Additional mobile-specific rules */
 @media (max-width: 768px) {
-    .background-video {
+    .background-video,
+    .background-video-hero,
+    .background-video-sb,
+    .background-video-bc {
         pointer-events: none;
     }
 }

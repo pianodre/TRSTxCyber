@@ -5,15 +5,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Function to check if the user is on a mobile device
     function isMobile() {
-        // Check user agent for mobile devices
-        const mobileUserAgent = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        // DISABLED: Mobile popup is currently disabled
+        return false;
         
-        // Check screen width (anything under 650px is considered mobile)
-        const mobileWidth = window.innerWidth <= 650;
-        
-        console.log('Mobile detection - UserAgent:', mobileUserAgent, 'Width:', window.innerWidth);
-        
-        return mobileUserAgent || mobileWidth;
+        // Original detection code (commented out):
+        // const mobileUserAgent = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        // const mobileWidth = window.innerWidth <= 650;
+        // console.log('Mobile detection - UserAgent:', mobileUserAgent, 'Width:', window.innerWidth);
+        // return mobileUserAgent || mobileWidth;
     }
     
     // Only proceed if on mobile
@@ -80,10 +79,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Backup check on window load
 window.addEventListener('load', function() {
-    // If popup doesn't exist yet and we're on mobile, create it
-    if (!document.getElementById('mobilePopup') && 
-        (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-         window.innerWidth <= 650)) {
+    // DISABLED: Mobile popup backup check is currently disabled
+    if (false) { // Original condition commented out:
+        // (!document.getElementById('mobilePopup') && 
+        // (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+        //  window.innerWidth <= 650))
         
         // Create popup with simpler approach
         const popup = document.createElement('div');

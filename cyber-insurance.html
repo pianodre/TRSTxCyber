@@ -17,7 +17,7 @@
     
     <!-- Video background title screen -->
     <div class="bc-title-screen">
-        <video class="background-video-bc" autoplay muted loop id="bcBackgroundVideo">
+        <video class="background-video-bc" autoplay muted loop playsinline preload="auto" controls="false" id="bcBackgroundVideo">
             <source src="videos/CyberInsuranceBackgroundVid.mp4" type="video/mp4">
         </video>
         <div class="bc-title-banner">
@@ -397,6 +397,33 @@
             // Observe warranty protection list element
             if (warrantyProtectionList) {
                 observer.observe(warrantyProtectionList);
+            }
+            
+            // Mobile autoplay logic for background video
+            const bcBackgroundVideo = document.getElementById('bcBackgroundVideo');
+            if (bcBackgroundVideo) {
+                bcBackgroundVideo.playbackRate = 0.8;
+                
+                const playBcVideo = () => {
+                    bcBackgroundVideo.setAttribute('playsinline', 'true');
+                    bcBackgroundVideo.setAttribute('muted', 'true');
+                    bcBackgroundVideo.setAttribute('autoplay', 'true');
+                    bcBackgroundVideo.muted = true;
+                    
+                    bcBackgroundVideo.play().catch(error => {
+                        console.log('Cyber insurance video autoplay failed:', error);
+                        // Retry playing the video when user interacts with the page
+                        document.addEventListener('touchstart', () => {
+                            bcBackgroundVideo.play();
+                        }, { once: true });
+                    });
+                };
+                
+                // Try to play immediately
+                playBcVideo();
+                
+                // Also try when the video loads
+                bcBackgroundVideo.addEventListener('loadeddata', playBcVideo);
             }
         });
     </script>

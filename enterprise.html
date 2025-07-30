@@ -16,7 +16,7 @@
     </header>
     
     <div class="sb-title-screen enterprise-title-screen">
-        <video class="background-video-sb" autoplay muted loop id="enterpriseBackgroundVideo">
+        <video class="background-video-sb" autoplay muted loop playsinline preload="auto" controls="false" id="enterpriseBackgroundVideo">
             <source src="videos/AugmentedCyberVid.mp4" type="video/mp4">
         </video>
         <div class="sb-title-content container">
@@ -356,6 +356,28 @@
             const enterpriseVideo = document.getElementById('enterpriseBackgroundVideo');
             if (enterpriseVideo) {
                 enterpriseVideo.playbackRate = 0.8;
+                
+                // Mobile autoplay logic
+                const playEnterpriseVideo = () => {
+                    enterpriseVideo.setAttribute('playsinline', 'true');
+                    enterpriseVideo.setAttribute('muted', 'true');
+                    enterpriseVideo.setAttribute('autoplay', 'true');
+                    enterpriseVideo.muted = true;
+                    
+                    enterpriseVideo.play().catch(error => {
+                        console.log('Enterprise video autoplay failed:', error);
+                        // Retry playing the video when user interacts with the page
+                        document.addEventListener('touchstart', () => {
+                            enterpriseVideo.play();
+                        }, { once: true });
+                    });
+                };
+                
+                // Try to play immediately
+                playEnterpriseVideo();
+                
+                // Also try when the video loads
+                enterpriseVideo.addEventListener('loadeddata', playEnterpriseVideo);
             }
         });
     </script>

@@ -18,7 +18,7 @@
     </header>
     
     <div class="sb-title-screen">
-        <video class="background-video-sb" autoplay muted loop id="sbBackgroundVideo">
+        <video class="background-video-sb" autoplay muted loop playsinline preload="auto" controls="false" id="sbBackgroundVideo">
             <source src="videos/MetricsVid.mp4" type="video/mp4">
         </video>
         <div class="sb-title-content container">
@@ -319,6 +319,28 @@
             const sbBackgroundVideo = document.getElementById('sbBackgroundVideo');
             if (sbBackgroundVideo) {
                 sbBackgroundVideo.playbackRate = 0.8;
+                
+                // Mobile autoplay logic
+                const playSbVideo = () => {
+                    sbBackgroundVideo.setAttribute('playsinline', 'true');
+                    sbBackgroundVideo.setAttribute('muted', 'true');
+                    sbBackgroundVideo.setAttribute('autoplay', 'true');
+                    sbBackgroundVideo.muted = true;
+                    
+                    sbBackgroundVideo.play().catch(error => {
+                        console.log('Small business video autoplay failed:', error);
+                        // Retry playing the video when user interacts with the page
+                        document.addEventListener('touchstart', () => {
+                            sbBackgroundVideo.play();
+                        }, { once: true });
+                    });
+                };
+                
+                // Try to play immediately
+                playSbVideo();
+                
+                // Also try when the video loads
+                sbBackgroundVideo.addEventListener('loadeddata', playSbVideo);
             }
             
             // Reveal animation for elements

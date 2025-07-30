@@ -57,7 +57,7 @@
 </head>
 <body>
     <section class="hero">
-        <video class="background-video-hero" autoplay muted loop id="heroBackgroundVideo">
+        <video class="background-video-hero" autoplay muted loop playsinline preload="auto" controls="false" id="heroBackgroundVideo">
             <source src="videos/HomepageBackground.mp4" type="video/mp4">
         </video>
         <div class="hero-container">
@@ -443,6 +443,28 @@
             const heroBackgroundVideo = document.getElementById('heroBackgroundVideo');
             if (heroBackgroundVideo) {
                 heroBackgroundVideo.playbackRate = 0.8;
+                
+                // Mobile autoplay logic for hero video
+                const playHeroVideo = () => {
+                    heroBackgroundVideo.setAttribute('playsinline', 'true');
+                    heroBackgroundVideo.setAttribute('muted', 'true');
+                    heroBackgroundVideo.setAttribute('autoplay', 'true');
+                    heroBackgroundVideo.muted = true;
+                    
+                    heroBackgroundVideo.play().catch(error => {
+                        console.log('Hero video autoplay failed:', error);
+                        // Retry playing the video when user interacts with the page
+                        document.addEventListener('touchstart', () => {
+                            heroBackgroundVideo.play();
+                        }, { once: true });
+                    });
+                };
+                
+                // Try to play immediately
+                playHeroVideo();
+                
+                // Also try when the video loads
+                heroBackgroundVideo.addEventListener('loadeddata', playHeroVideo);
             }
             
             // Get all elements to animate
