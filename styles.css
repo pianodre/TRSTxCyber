@@ -4458,6 +4458,38 @@ footer {
     min-width: 1.5rem;
 }
 
+.footer-social-icons {
+    display: flex;
+    gap: 30px;
+    margin-top: 1rem;
+    justify-content: flex-start;
+}
+
+.footer-social-link {
+    color: #cccccc;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-social-link:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.footer-social-link .footer-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 0;
+}
+
+.linkedin-icon,
+.instagram-icon,
+.facebook-icon {
+    fill: currentColor;
+    transition: fill 0.3s ease;
+}
+
 .footer-right {
     flex: 1;
     display: flex;
